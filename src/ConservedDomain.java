@@ -46,20 +46,30 @@ public class ConservedDomain
 
     public static void printSequences(char[][] msa)
     {
-        for(int i = 0; i < 27; i++) //rows
+        // print output of results to file
+        try
         {
-            for(int j = 0; j < msa[0].length; j++) //columns
+            PrintWriter output = new PrintWriter("conserved_phaB.txt");
+            for (int i = 0; i < 27; i++) //rows
             {
-                System.out.print(msa[i][j]);
+                for (int j = 0; j < msa[0].length; j++) //columns
+                {
+                    output.print(msa[i][j]);
+                }
+                output.println();
             }
-            System.out.println();
+            output.close();
+        }
+        catch(FileNotFoundException exc)
+        {
+            System.out.printf("ERROR: %s\n", exc);
         }
     }
 
     public static void main(String args[])
     {
         // reading MSA file into a character array
-        File file = new File("phaC.txt");
+        File file = new File("phaB.txt");
         String[] arr = new String[27];
         char[][] sequences = new char[27][750];
         try
