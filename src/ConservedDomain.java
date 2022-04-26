@@ -83,9 +83,10 @@ public class ConservedDomain
         try
         {
             // creating new file to write to
-            PrintWriter output = new PrintWriter("conserved_phaA.txt");
+            PrintWriter output = new PrintWriter("conserved_phaC.txt");
             for (int i = 0; i < 27; i++) //rows
             {
+                output.print(">" + (i+1) + "\n");
                 for (int j = 0; j < conserved[0].length; j++) //columns
                 {
                     output.print(conserved[i][j]);
@@ -108,7 +109,7 @@ public class ConservedDomain
     public static void main(String args[])
     {
         // calls information from preexisting file with MSA alignment
-        File file = new File("phaA.txt");
+        File file = new File("phaC.txt");
         // String array to store each solo sequence
         String[] arr = new String[27];
         // 2D char array to store each sequence by amino acid
